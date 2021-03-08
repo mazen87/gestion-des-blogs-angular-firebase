@@ -1,0 +1,22 @@
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': dernierClick === 1,
+'list-group-item-danger': dernierClick === -1,
+'list-group-item-primary': dernierClick === 0
+}">
+    <div style="display: flex;justify-content: space-between;">
+        <div>
+            <h2 >{{title}} </h2> 
+        </div>
+        <div>
+            <p style="color: gray;">   {{ created_at | date : 'short'}}</p>
+        </div>    
+    </div>
+    <div [ngStyle]="{color: getColor()}"> 
+        <p>{{content}}</p>
+    </div>
+    <div> {{loveIts}}</div>
+    <button style="margin-right: 5px;" class="btn btn-success" (click)="onLikeIts()"> Like it!</button>
+    <button class="btn btn-danger" style="margin-right: 5px;" (click)="onDisLikeIts()"> Don't Like it!</button>
+    <button style="margin-right: 5px;" class="btn btn-danger pull-right" (click)="onSupprimer()"> Supprimer !</button>
+
+</li>
